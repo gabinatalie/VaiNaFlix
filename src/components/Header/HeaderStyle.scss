@@ -1,0 +1,59 @@
+// Variáveis
+$header-height: 4.5rem;
+$header-mobile-height: 3rem;
+$header-font-size: 3rem;
+$header-mobile-font-size: 1.5rem;
+$primary-color: #e50914;
+$header-bg-color: #141414;
+
+header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background: transparent;
+  transition: all ease-in-out 0.5s;
+
+  h2 {
+    color: $primary-color;
+    font-size: $header-font-size;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px #fff;
+
+    &:hover {
+      color: #fff;
+      text-shadow: 1px 1px 2px $primary-color;
+    }
+  }
+}
+
+header.black {
+  background-color: $header-bg-color;
+}
+
+.header--user {
+  height: $header-mobile-height;
+
+  img {
+    height: 100%;
+    border-radius: 3px;
+  }
+}
+
+// Media Queries
+@media (max-width: 760px) {
+  header h2 {
+    font-size: $header-mobile-font-size;
+  }
+
+  .header--user {
+    height: $header-mobile-height;
+  }
+}

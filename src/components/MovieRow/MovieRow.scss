@@ -1,0 +1,78 @@
+// Variáveis
+$movie-row-margin: 1rem;
+$button-width: 40px;
+$button-height: 225px;
+$button-hover-bg: rgba(0, 0, 0, 0.5);
+$item-width: 12vw;
+$scale-up: 1;
+$scale-down: 0.9;
+
+.movieRow {
+  margin-bottom: $movie-row-margin;
+
+  h2 {
+    margin: 0 0 0 2rem;
+  }
+}
+
+.movieRow--listarea {
+  overflow-x: hidden;
+  padding-left: 2rem;
+}
+
+.movieRow--list {
+  transition: all ease 0.5s;
+}
+
+.movieRow--item {
+  display: inline-block;
+  width: $item-width;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    transform: scale($scale-down); // Reduz a imagem para 90%
+    transition: all ease 0.2s;
+
+    &:hover {
+      transform: scale($scale-up); // Retorna a imagem para 100% ao passar o mouse
+    }
+  }
+}
+
+.movieRow--before, .movieRow--next{
+  position: absolute;
+  width: $button-width;
+  height: $button-height;
+ margin: 1.3rem 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+   background-color: $button-hover-bg;
+  cursor: pointer;
+  opacity: 0;
+  transition: all ease 0.5s;
+ 
+}
+
+.movieRow--before{
+  left:0
+}
+.movieRow--next{
+  right: 0;
+}
+
+.movieRow:hover .movieRow--before, .movieRow:hover .movieRow--next{
+opacity: 1;
+}
+
+// Media Queries
+@media (max-width: 760px) {
+  .movieRow--button {
+    opacity: 1;
+    height: 30px;
+    background-color: transparent;
+  }
+}
